@@ -5,7 +5,7 @@ class App extends React.Component {
   render () {
     const containerStyle = {marginTop: '10px'};
     return (
-    <div class="ui container" style={ containerStyle }>
+    <div className="ui container" style={ containerStyle }>
       <SearchBar/>
     </div>
     );
