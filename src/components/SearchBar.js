@@ -13,8 +13,9 @@ class SearchBar extends React.Component {
     //the browser no longer automatically refreshes itself
   onFormSubmit = event => {
     event.preventDefault();
-    
-    console.log(this.state.term);
+    this.props.onSubmit(this.state.term);
+    //console.log(this.state.term);
+
   }
 
   render () {
