@@ -2,10 +2,8 @@ import React from 'react';
 
 
 class SearchBar extends React.Component {
-  onInputChange(event) {
-    console.log(event.target.value);
-    
-  }
+  //controlled input element, its value is stored in the state
+  state = { term: ''};
 
   render () {
     const searchLabel={text: "Image search"};
@@ -19,7 +17,8 @@ class SearchBar extends React.Component {
               id="imageInput" 
               type="text" 
               /*onChange={this.onInputChange} */
-              onChange={(e) => console.log(e.target.value)}
+              value={this.state.term}
+              onChange={e => this.setState({ term: e.target.value})}
             />
           </div>
         </form>
