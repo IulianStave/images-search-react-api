@@ -5,12 +5,20 @@ class SearchBar extends React.Component {
   //controlled input element, its value is stored in the state
   state = { term: ''};
 
+  // we use an arrow function to avoid this undefined error
+  // will bind this
+  onFormSubmit = (event) => {
+    //the browser no longer automatically refreshes itself
+    event.preventDefault();
+    console.log(this.state.term);
+  }
+
   render () {
     const searchLabel={text: "Image search"};
     
     return (
       <div className="ui segment">
-        <form className="ui form">
+        <form onSubmit={this.onFormSubmit} className="ui form">
           <div className="field">
             <label htmlFor="imageInput">{ searchLabel.text }</label>
             <input 
