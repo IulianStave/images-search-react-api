@@ -7,7 +7,9 @@ class SearchBar extends React.Component {
 
   // we use an arrow function to avoid this undefined error
   // will bind this
-  onFormSubmit = (event) => {
+  //onFormSubmit = (event) => {
+  
+  onFormSubmit(event) {
     //the browser no longer automatically refreshes itself
     event.preventDefault();
     console.log(this.state.term);
@@ -18,7 +20,7 @@ class SearchBar extends React.Component {
     
     return (
       <div className="ui segment">
-        <form onSubmit={this.onFormSubmit} className="ui form">
+        <form onSubmit={e => this.onFormSubmit(e)} className="ui form">
           <div className="field">
             <label htmlFor="imageInput">{ searchLabel.text }</label>
             <input 
