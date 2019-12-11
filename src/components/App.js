@@ -1,25 +1,21 @@
 import React from 'react';
-import axios from 'axios';
 import SearchBar from './SearchBar';
+import unsplash from '../api/unsplash';
 
 class App extends React.Component {
   state = {images: [] };
   //define the arrow function async
   onSearchSubmit = async (term) => {
-    // npm install --save axios
+    // npm install -- save axios
     // API endpoint GET /search/photos
-    // make a request over the unshplash API using 
-    // third party library
-    // use Async await async - const response = await 
-    const response = await axios
-      .get('https://api.unsplash.com/search/photos',{
-        params: {query: term},
-        headers: {
-          Authorization: 
-            'Client-ID b77df092bedc33ccf66e908bac6f01ac2aa906c7a73c0acb4f46b1fc7aab6114'
-        }
+    // make a request over the unsplash API using 
+    // third party library axios
+    // use async and await 
+    // async (term) =>  const response = await axios.get
+    const response = await unsplash.get('/search/photos', {
+        params: {query: term} 
       });
-      console.log(this)
+      // console.log(this)
       this.setState({ images: response.data.results });
   }
   
