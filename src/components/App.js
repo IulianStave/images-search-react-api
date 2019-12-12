@@ -7,7 +7,7 @@ class App extends React.Component {
   state = {images: [] };
   //define the arrow function async
   onSearchSubmit = async (term) => {
-    // npm install -- save axios
+    // npm install --save axios
     // API endpoint GET /search/photos
     // make a request over the unsplash API using 
     // third party library axios
@@ -28,7 +28,7 @@ class App extends React.Component {
       {/* the prop name 'onSubmit' could be whatever we choose  */}
       <SearchBar onSubmit={this.onSearchSubmit}/>
       {/* Found: {this.state.images.length} images */}
-      <ImageList />
+      <ImageList images = {this.state.images} />
     </div>
     );
   }
