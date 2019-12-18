@@ -10,13 +10,11 @@ class ImageCard extends React.Component {
   }
 
   componentDidMount() {
-    // console.log(this.imageRef);
-    // console.log(this.imageRef.current.clientHeight);
     this.imageRef.current.addEventListener('load', this.setSpans);
   }
 
   setSpans = () => {
-    // when we get that height we use it to determine the img size 
+    // get height and determine the img size 
     const height = this.imageRef.current.clientHeight;
     const spans = Math.ceil(height / 10);
     this.setState({ spans })

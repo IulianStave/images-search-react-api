@@ -5,18 +5,12 @@ import ImageList from './ImageList';
 
 class App extends React.Component {
   state = {images: [] };
-  //define the arrow function async
+  
   onSearchSubmit = async (term) => {
-    // npm install --save axios
-    // API endpoint GET /search/photos
-    // make a request over the unsplash API using 
-    // third party library axios
-    // use async and await 
-    // async (term) =>  const response = await axios.get
     const response = await unsplash.get('/search/photos', {
         params: {query: term} 
       });
-      // console.log(this)
+    
       this.setState({ images: response.data.results });
   }
   
@@ -25,7 +19,7 @@ class App extends React.Component {
     
     return (
     <div className="ui container" style={ containerStyle }>
-      {/* the prop name 'onSubmit' could be whatever we choose  */}
+      {/* the prop name 'onSubmit' can be whatever we choose  */}
       <SearchBar onSubmit={this.onSearchSubmit}/>
       {/* Found: {this.state.images.length} images */}
       <ImageList images = {this.state.images} />
